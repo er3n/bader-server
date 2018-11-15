@@ -5,5 +5,9 @@
   "dependencies": {
     "cloudinary": "^1.13.2",
     "express": "^4.16.4"
+  },
+  "engines":{
+    "node": "v8.11.3",
+    "npm": "6.4.1"
   }
 }
