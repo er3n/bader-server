@@ -1,9 +1,11 @@
 var cloudinary = require('cloudinary')
 
+console.log(process.env.CLOUDINARY_CLOUD_NAME)
+
 cloudinary.config({
-    cloud_name: process.argv[2],
-    api_key: process.argv[3],
-    api_secret: process.argv[4],
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET,
 })
 
 var repository = {}
