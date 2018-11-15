@@ -1,5 +1,9 @@
 {
+  "scripts": {
+    "start": "node src/Main.js"
+  },
   "dependencies": {
+    "cloudinary": "^1.13.2",
     "express": "^4.16.4"
   }
 }
