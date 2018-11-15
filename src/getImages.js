@@ -17,17 +17,24 @@ var getImages = function (folder) {
             resolve(images)
         } else {
             cloudinary.v2.search
-                .expression('folder:dynamic/otherprograms')
+                .expression('folder:' + folder)
                 .with_field('tags')
                 .max_results(50)
                 .execute().then(result => {
                     var data = result.resources.map(resource => {
                         var image = resource.url
                         if(resource.tags && resource.tags.length > 0) {
-                            return {
-                                "src": image,
-                                "href": resource.tags[0]
+                            var res = {
+                                src: image
                             }
+                            resource.tags.forEach(tag => {
+                                if(tag.includes('http')) {
+                                    res.href = tag
+                                } else {
+                                    res.description = tag
+                                }
+                            })
+                            return res
                         } else {
                             return image
                         }
