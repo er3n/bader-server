@@ -29,7 +29,6 @@ var getImages = function (folder) {
                                 "href": resource.tags[0]
                             }
                         } else {
-                            console.log('burda')
                             return image
                         }
                     })
